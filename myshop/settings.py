@@ -47,6 +47,8 @@ INSTALLED_APPS = [
 
     'rosetta',
     'parler',
+    'localflavor',
+    'redis',
 ]
 
 MIDDLEWARE = [
@@ -134,17 +136,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_URL = '/static/'
-
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
+STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static")
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_collected/')
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static/')
+]
 
 # STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
@@ -207,3 +209,10 @@ PARLER_LANGUAGES = {
         'hide_untranslated': False,
     }
 }
+
+# recomendations
+
+REDIS_HOST = 'localhost'
+REDIS_PORT = 6379
+REDIS_DB = 2
+
